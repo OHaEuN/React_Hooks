@@ -1,0 +1,7 @@
+body {
+  padding: 20px;
+  text-align: center;
+}
+button:hover {
+  box-shadow: 0 0 0.2rem teal;
+}
