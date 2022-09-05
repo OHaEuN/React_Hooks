@@ -12,7 +12,7 @@ const content = [
   },
 ];
 
-const useTabs = (initialTab, allTabs) => {
+const UseTabs = (initialTab, allTabs) => {
   const [currentIndex, setCurrentIndex] = useState(initialTab);
   if (!allTabs || !Array.isArray(allTabs)) {
     return;
@@ -36,4 +36,4 @@ const useTabs = (initialTab, allTabs) => {
 //   );
 // };
 
-export default useTabs;
+export default UseTabs;
