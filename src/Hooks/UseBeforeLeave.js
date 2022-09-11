@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import "./App.css";
 
-const useBeforeLeave = (onBefore) => {
+const UseBeforeLeave = (onBefore) => {
   const handle = (event) => {
     const { clientY } = event;
     if (clientY >= 0) {
@@ -21,14 +21,14 @@ const useBeforeLeave = (onBefore) => {
   }, []);
 };
 
-const App = () => {
-  const begForLife = () => console.log("Pls dont leave");
-  useBeforeLeave(begForLife);
-  return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
-  );
-};
+// const App = () => {
+//   const begForLife = () => console.log("Pls dont leave");
+//   UseBeforeLeave(begForLife);
+//   return (
+//     <div className="App">
+//       <h1>Hello</h1>
+//     </div>
+//   );
+// };
 
-export default App;
+export default UseBeforeLeave;
