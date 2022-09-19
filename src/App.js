@@ -1,32 +1,19 @@
-import React, { useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
-
-const useBeforeLeave = (onBefore) => {
-  const handle = (event) => {
-    const { clientY } = event;
-    if (clientY >= 0) {
-      //마우스가 창 아래 방향으로 내려갈 때 실행
-      onBefore();
-    }
-  };
-  useEffect(() => {
-    if (typeof onBefore !== "function") {
-      return;
-    }
-    document.addEventListener("mouseleave", handle);
-    return () => {
-      document.removeEventListener("mouseleave", handle);
-    };
-  }, []);
-};
+import UseAxios from "./Hooks/UseAxios/UseAxios";
 
 const App = () => {
-  const begForLife = () => console.log("Pls dont leave");
-  useBeforeLeave(begForLife);
+  const { loading, data, error, refetch } = UseAxios({
+    url: "https://yts.mx/api/v2/list_movies.json",
+  });
+  console.log(
+    `Loading:${loading}\nData:${JSON.stringify(data)}\nError:${error}\n`
+  );
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <div className="App" style={{ height: "1000vh" }}>
+      <h1>{data && data.status}</h1>
+      <h2>{loading && "Loading"}</h2>
+      <button onClick={refetch}>refetch</button>
     </div>
   );
 };
